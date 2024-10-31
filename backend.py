@@ -1,5 +1,3 @@
-import json
-import logging
 from langchain.llms.bedrock import Bedrock
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
