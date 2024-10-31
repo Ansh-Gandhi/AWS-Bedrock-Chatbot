@@ -1,5 +1,5 @@
 import streamlit as st
-import backend as demo
+import backend as chatbot
 
 # Custom CSS for styling
 st.markdown(
@@ -95,12 +95,12 @@ if current_session in st.session_state.chat_history:
             else:
                 st.markdown(f"<div class='chat-bubble assistant-bubble'>{message['text']}</div>", unsafe_allow_html=True)
 
+# Dropdown for selecting character profile
+character_profile = st.selectbox("Select Character Profile", ["mom", "dad", "sibling", "significant other", "friend", "teacher", "coach", "neutral"])
+
 # User input options
 st.markdown("### Enter your message")
 input_text = st.chat_input("Type your message here...")
-
-# Dropdown for selecting character profile
-character_profile = st.selectbox("Select Character Profile", ["mom", "dad", "sibling", "significant other", "friend", "teacher", "coach", "neutral"])
 
 if input_text:
     # Display user message
@@ -110,11 +110,11 @@ if input_text:
 
     # Initialize the memory buffer for the current session
     if current_session not in st.session_state.memory_buffers:
-        st.session_state.memory_buffers[current_session] = demo.demo_memory()
+        st.session_state.memory_buffers[current_session] = chatbot.chatbot_memory()
     memory = st.session_state.memory_buffers[current_session]
 
     # Get chatbot response with fixed values for temperature and top_p
-    chat_response = demo.demo_chain(
+    chat_response = chatbot.chatbot_chain(
         input_text=input_text, 
         character_profile=character_profile,  # Pass the character profile here
         memory=memory,

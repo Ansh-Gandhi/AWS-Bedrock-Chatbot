@@ -4,14 +4,8 @@ from langchain.llms.bedrock import Bedrock
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 
-# Setup logging
-logging.basicConfig(filename='chatbot_logs.log', level=logging.INFO, format='%(asctime)s - %(message)s')
-
-# Global shared memory
-shared_memory = ConversationBufferMemory(max_token_limit=512)
-
-def demo_chatbot(temperature=0.5, top_p=1):
-    demo_llm = Bedrock(
+def chatbot_init(temperature=0.5, top_p=1):
+    chatbot_llm = Bedrock(
         credentials_profile_name='default',
         model_id='anthropic.claude-v2:1',
         model_kwargs={
@@ -23,9 +17,9 @@ def demo_chatbot(temperature=0.5, top_p=1):
         }, 
         region_name='us-east-1'
     )
-    return demo_llm
+    return chatbot_llm
 
-def demo_memory():
+def chatbot_memory():
     # Initialize a new, empty memory buffer
     memory = ConversationBufferMemory(max_token_limit=512)
     return memory
@@ -52,10 +46,10 @@ def format_prompt(character_profile, input_text):
     formatted_input = f"{input_text} (Respond {emotion_tone}) [/INST]"
     return formatted_input
 
-def demo_chain(input_text, character_profile, memory, shared=False, temperature=0.5, top_p=1):
+def chatbot_chain(input_text, character_profile, memory, temperature=0.5, top_p=1):
     llm_conversation = ConversationChain(
-        llm=demo_chatbot(temperature, top_p),
-        memory=shared_memory if shared else memory,
+        llm=chatbot_init(temperature, top_p),
+        memory=memory,
         verbose=True
     )
 

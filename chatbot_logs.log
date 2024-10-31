@@ -1,8 +1,0 @@
-2024-10-29 20:30:53,004 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:38:24,368 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:40:18,069 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:42:08,831 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:47:07,061 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:47:30,723 - Found credentials in shared credentials file: ~/.aws/credentials
-2024-10-29 20:50:04,449 - {"input": "hello", "reply": "", "character_profile": "mom", "temperature": 0.5, "top_p": 1}
-2024-10-29 20:52:02,188 - Found credentials in shared credentials file: ~/.aws/credentials
