@@ -20,6 +20,6 @@ Improve the LLM's ability to respond to diverse inputs by training the model on 
 
 To view the application, ensure all the dependencies are installed. Once that is complete, clone the repository to your local machine, and run the following command: streamlit run frontend.py, as this will open a new tab in your browser allowing you to interact with the application. 
 
-# Visual Representation of the App
+# Visual Representation of the Logical Flow of the App
 
 ![AWS Chatbot Logic Flow Diagram](chatbot_diagram.png)

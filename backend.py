@@ -57,13 +57,4 @@ def chatbot_chain(input_text, character_profile, memory, temperature=0.5, top_p=
     formatted_input = format_prompt(character_profile, input_text)
     chat_reply = llm_conversation.predict(input=formatted_input)
 
-    # Log the interaction
-    logging.info(json.dumps({
-        "input": input_text,
-        "reply": chat_reply,
-        "character_profile": character_profile,
-        "temperature": temperature,
-        "top_p": top_p
-    }))
-
     return chat_reply
